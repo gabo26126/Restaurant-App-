@@ -1,0 +1,6 @@
+<resources>
+    <style name="GreenButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/green_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>

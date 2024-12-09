@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name">Restaurant App</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string-array name="drinks_array">
+        <item>Dricka</item>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+        <item>Vatten</item>
+        <item>Cola</item>
+        <item>Fanta</item>
+        <item>Sprite</item>
+    </string-array>
 </resources>
