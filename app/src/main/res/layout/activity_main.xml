@@ -220,6 +220,10 @@
                     android:text="+"
                     android:id="@+id/plus3" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#CCCCCC" />
 
             <!-- Huvudrätt -->
             <TextView
@@ -362,6 +366,10 @@
                     android:text="+"
                     android:id="@+id/plus7" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#CCCCCC" />
 
             <!-- Dessert -->
             <TextView
