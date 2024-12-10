@@ -3,8 +3,6 @@ package com.example.restaurant_app;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
 import android.widget.Button;
 
 
