@@ -13,10 +13,17 @@ public class KitchenFloorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kitchen_floor);
 
-        Button pickWorkButton = findViewById(R.id.kitchenButton);
+        Button pickWorkButton = findViewById(R.id.floorButton);
 
         pickWorkButton.setOnClickListener(v -> {
             Intent intent = new Intent(KitchenFloorActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        Button pickKitchenButton = findViewById(R.id.kitchenButton);
+
+        pickWorkButton.setOnClickListener(v -> {
+            Intent intent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
             startActivity(intent);
         });
     }
