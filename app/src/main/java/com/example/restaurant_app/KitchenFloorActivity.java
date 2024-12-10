@@ -22,7 +22,7 @@ public class KitchenFloorActivity extends AppCompatActivity {
 
         Button pickKitchenButton = findViewById(R.id.kitchenButton);
 
-        pickWorkButton.setOnClickListener(v -> {
+        pickKitchenButton.setOnClickListener(v -> {
             Intent intent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
             startActivity(intent);
         });
