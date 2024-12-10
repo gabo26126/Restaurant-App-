@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
             final int index = i;  // Behöver detta för att korrekt uppdatera rätt räknare
 
-            // Sätt klickhanterare för minus-knappen
+
             minusButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            // Sätt klickhanterare för plus-knappen
+
             plusButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Metod för att uppdatera räknaren
+
     private void updateCount(TextView countTextView, boolean increase, int index) {
         int currentCount = Integer.parseInt(countTextView.getText().toString());
         if (increase) {
