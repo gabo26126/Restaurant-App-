@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Fast header med bordets namn -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:orientation="vertical"
@@ -44,7 +43,7 @@
             android:id="@+id/newtable"
             android:text="Bord"
             android:textColor="#000000"
-            android:background="#FFFFFF"
+            android:background=""
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"/>
@@ -59,8 +58,8 @@
         <Button
             android:id="@+id/ongoingButton"
             android:text="Färdigt"
+            android:background="#"
             android:textColor="#000000"
-            android:background="#FFFFFF"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -75,7 +74,7 @@
             android:id="@+id/selectTableButton"
             android:text="Pågående bord"
             android:textColor="#000000"
-            android:background="#FFFFFF"
+            android:background="#"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -99,6 +98,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,11 +142,10 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
                     android:text="-"
-
                     android:id="@+id/minus1" />
 
                 <TextView
@@ -160,7 +160,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:text="+"
@@ -188,9 +188,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
-                    android:textColor="#000000"
                     android:textSize="25dp"
+                    android:background="#"
+                    android:textColor="#000000"
+
                     android:id="@+id/minus2" />
 
                 <TextView
@@ -206,7 +207,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:id="@+id/plus2" />
@@ -230,8 +231,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
                     android:textColor="#000000"
+                    android:background="#"
                     android:textSize="25dp"
                     android:text="-"
                     android:id="@+id/minus3" />
@@ -249,7 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:id="@+id/plus3" />
@@ -290,7 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
                     android:id="@+id/minus4" />
@@ -308,10 +309,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
                     android:textColor="#000000"
+                    android:background="#"
                     android:textSize="20dp"
                     android:id="@+id/plus4" />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -332,7 +334,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
                     android:id="@+id/minus5" />
@@ -350,7 +352,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:id="@+id/plus5" />
@@ -374,7 +376,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
                     android:id="@+id/minus6" />
@@ -392,7 +394,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:id="@+id/plus6" />
@@ -416,7 +418,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
                     android:id="@+id/minus7" />
@@ -434,7 +436,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:id="@+id/plus7" />
@@ -475,10 +477,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
-                    android:id="@+id/minusDessert1" />
+                    android:id="@+id/minus8" />
 
                 <TextView
                     android:id="@+id/dessertCount1"
@@ -493,10 +495,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
-                    android:id="@+id/plusDessert1" />
+                    android:id="@+id/plus8" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -516,10 +518,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
-                    android:id="@+id/minusDessert2" />
+                    android:id="@+id/minus9" />
 
                 <TextView
                     android:id="@+id/dessertCount2"
@@ -534,10 +536,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
-                    android:id="@+id/plusDessert2" />
+                    android:id="@+id/plus9" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -557,10 +559,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="25dp"
-                    android:id="@+id/minusDessert3" />
+                    android:id="@+id/minus10" />
 
                 <TextView
                     android:id="@+id/dessertCount3"
@@ -575,10 +577,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#FFFFFF"
+                    android:background="#"
                     android:textColor="#000000"
                     android:textSize="20dp"
-                    android:id="@+id/plusDessert3" />
+                    android:id="@+id/plus10" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
