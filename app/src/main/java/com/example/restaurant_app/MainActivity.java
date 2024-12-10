@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int Count = 2; // Antal rätter
+        int Count = 10; // Antal rätter
 
         // Loop genom alla rätter
         for (int i = 1; i <= Count; i++) {

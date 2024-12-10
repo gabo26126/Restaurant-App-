@@ -42,8 +42,8 @@
         <Button
             android:id="@+id/newtable"
             android:text="Bord"
-            android:textColor="#000000"
-            android:background=""
+            android:textColor="#FFFFFF"
+            android:background="#000000"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"/>
@@ -58,8 +58,8 @@
         <Button
             android:id="@+id/ongoingButton"
             android:text="Färdigt"
-            android:background="#"
-            android:textColor="#000000"
+            android:background="#000000"
+            android:textColor="#FFF"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -73,8 +73,8 @@
         <Button
             android:id="@+id/selectTableButton"
             android:text="Pågående bord"
-            android:textColor="#000000"
-            android:background="#"
+            android:textColor="#FFF"
+            android:background="#000"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -142,8 +142,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:text="-"
                     android:id="@+id/minus1" />
@@ -160,8 +160,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:text="+"
                     android:id="@+id/plus1" />
@@ -189,26 +189,26 @@
                     android:layout_height="wrap_content"
                     android:text="-"
                     android:textSize="25dp"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
 
                     android:id="@+id/minus2" />
 
                 <TextView
-                    android:id="@+id/starter2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:text="0"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:id="@+id/Count2" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus2" />
             </LinearLayout>
@@ -231,8 +231,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:background="#"
+                    android:textColor="#FFF"
+                    android:background="#000"
                     android:textSize="25dp"
                     android:text="-"
                     android:id="@+id/minus3" />
@@ -250,8 +250,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus3" />
             </LinearLayout>
@@ -291,8 +291,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus4" />
 
@@ -309,8 +309,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:textColor="#000000"
-                    android:background="#"
+                    android:textColor="#FFF"
+                    android:background="#000"
                     android:textSize="20dp"
                     android:id="@+id/plus4" />
 
@@ -334,8 +334,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus5" />
 
@@ -352,8 +352,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus5" />
             </LinearLayout>
@@ -376,8 +376,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus6" />
 
@@ -394,8 +394,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus6" />
             </LinearLayout>
@@ -418,8 +418,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus7" />
 
@@ -436,8 +436,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus7" />
 
@@ -477,13 +477,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus8" />
 
                 <TextView
-                    android:id="@+id/dessertCount1"
+                    android:id="@+id/Count8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -495,8 +495,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus8" />
             </LinearLayout>
@@ -511,20 +511,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#000000"
-                    android:text="blåbärspaj m. Vaniljsås>"
+                    android:text="blåbärspaj m. Vaniljsås"
                     android:textSize="16sp" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus9" />
 
                 <TextView
-                    android:id="@+id/dessertCount2"
+                    android:id="@+id/Count9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -536,8 +536,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus9" />
             </LinearLayout>
@@ -559,13 +559,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="25dp"
                     android:id="@+id/minus10" />
 
                 <TextView
-                    android:id="@+id/dessertCount3"
+                    android:id="@+id/Count10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -577,8 +577,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+"
-                    android:background="#"
-                    android:textColor="#000000"
+                    android:background="#000"
+                    android:textColor="#FFF"
                     android:textSize="20dp"
                     android:id="@+id/plus10" />
             </LinearLayout>
