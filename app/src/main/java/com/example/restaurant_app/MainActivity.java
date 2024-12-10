@@ -1,5 +1,6 @@
 package com.example.restaurant_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,5 +12,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Your code here
+        Intent kitchenFloorIntent = new Intent(MainActivity.this, KitchenFloorActivity.class);
+        startActivity(kitchenFloorIntent);
     }
 }
