@@ -3,8 +3,6 @@ package com.example.restaurant_app;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
 import android.widget.Button;
 
 
@@ -17,12 +15,9 @@ public class KitchenFloorActivity extends AppCompatActivity {
 
         Button pickWorkButton = findViewById(R.id.kitchenButton);
 
-        pickWorkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(KitchenFloorActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        pickWorkButton.setOnClickListener(v -> {
+            Intent intent = new Intent(KitchenFloorActivity.this, MainActivity.class);
+            startActivity(intent);
         });
     }
 }
