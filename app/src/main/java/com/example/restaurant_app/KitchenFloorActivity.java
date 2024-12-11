@@ -26,19 +26,20 @@ public class KitchenFloorActivity extends AppCompatActivity {
             }
         });
 
-
-
-        /*
-        pickWorkButton.setOnClickListener(v -> {
-            Intent intent = new Intent(KitchenFloorActivity.this, MainActivity.class);
-            startActivity(intent);
+        pickKitchenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { showKitchenActivity(); }
         });
-        */
     }
 
     public void showChooseTableActivity(){
         Intent chooseTableIntent = new Intent(KitchenFloorActivity.this, ChooseTableActivity.class);
         //chooseTableIntent.putExtra(messageKey, message);
         startActivity(chooseTableIntent);
+    }
+
+    public void showKitchenActivity(){
+        Intent chooseKitchenIntent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
+        startActivity(chooseKitchenIntent);
     }
 }
