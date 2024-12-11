@@ -13,6 +13,10 @@
         android:theme="@style/Theme.Restaurant_App"
         tools:targetApi="31">
         <activity
+            android:name=".tablePopup"
+            android:theme="@style/TablePopupTheme"
+            android:exported="false" />
+        <activity
             android:name=".KitchenFloorActivity"
             android:exported="false" />
         <activity
