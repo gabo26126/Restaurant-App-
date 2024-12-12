@@ -4,4 +4,9 @@
 
 
     </style>
+
+    <style name="TablePopupTheme" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
 </resources>
