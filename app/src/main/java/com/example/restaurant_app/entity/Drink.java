@@ -1,17 +1,17 @@
 package com.example.restaurant_app.entity;
 
-public class MainCourse {
-    private int mainCourseID;
+public class Drink {
+    private int dessertID;
     private String name;
     private String description;
     private double price;
 
     public int getDessertID() {
-        return mainCourseID;
+        return dessertID;
     }
 
     public void setDessertID(int dessertID) {
-        this.mainCourseID = dessertID;
+        this.dessertID = dessertID;
     }
 
     public String getName() {
