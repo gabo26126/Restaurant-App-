@@ -26,10 +26,7 @@ public class KitchenFloorActivity extends AppCompatActivity {
             }
         });
 
-        pickKitchenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { showKitchenActivity(); }
-        });
+        pickKitchenButton.setOnClickListener(view -> showKitchenActivity());
     }
 
     public void showChooseTableActivity(){

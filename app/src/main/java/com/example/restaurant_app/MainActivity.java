@@ -1,5 +1,6 @@
 package com.example.restaurant_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int Count = 10; // Antal rätter
+
+        int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
+
+        String layout = String.format("Bord %d", tableNumber);
+        TextView textView = (TextView) findViewById(R.id.tableName);
+        textView.setText(layout);
+
+        Button bordButton = findViewById(R.id.newtable);
+
+        bordButton.setOnClickListener(view -> backToTable());
 
         // Loop genom alla rätter
         for (int i = 1; i <= Count; i++) {
@@ -51,5 +62,10 @@ public class MainActivity extends AppCompatActivity {
             if (currentCount > 0) currentCount--;  // Förhindrar att räknaren går under 0
         }
         countTextView.setText(String.valueOf(currentCount));  // Uppdatera texten
+    }
+
+    private void backToTable(){
+        Intent tableIntent = new Intent(MainActivity.this, ChooseTableActivity.class);
+        startActivity(tableIntent);
     }
 }

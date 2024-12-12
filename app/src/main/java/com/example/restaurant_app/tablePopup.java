@@ -33,23 +33,28 @@ public class tablePopup extends Activity {
 
     }
 
-    public void setupTableChoice(View rootView){
-        View table1View = rootView.findViewById(R.id.viewButton1);
-        View table2View = rootView.findViewById(R.id.viewButton2);
-        View table3View = rootView.findViewById(R.id.viewButton3);
-        View table4View = rootView.findViewById(R.id.viewButton4);
-        View table5View = rootView.findViewById(R.id.viewButton5);
-        View table6View = rootView.findViewById(R.id.viewButton6);
-        View table7View = rootView.findViewById(R.id.viewButton7);
-        View table8View = rootView.findViewById(R.id.viewButton8);
-        View table9View = rootView.findViewById(R.id.viewButton9);
-        View table10View = rootView.findViewById(R.id.viewButton10);
+    public void setupTableChoice(View rootView) {
+        // Map button IDs directly to table numbers
+        int[] buttonIds = {
+                R.id.viewButton1, R.id.viewButton2, R.id.viewButton3,
+                R.id.viewButton4, R.id.viewButton5, R.id.viewButton6,
+                R.id.viewButton7, R.id.viewButton8, R.id.viewButton9,
+                R.id.viewButton10
+        };
 
-        table1View.setOnClickListener(view -> showOrderActivity());
+        // Attach a single OnClickListener to all buttons
+        for (int i = 0; i < buttonIds.length; i++) {
+            final int tableNumber = i + 1; // Table numbers start at 1
+            View button = rootView.findViewById(buttonIds[i]);
+            if (button != null) {
+                button.setOnClickListener(view -> showOrderActivity(tableNumber));
+            }
+        }
     }
 
-    private void showOrderActivity(){
+    private void showOrderActivity(int tableNumber) {
         Intent chooseTableIntent = new Intent(tablePopup.this, MainActivity.class);
+        chooseTableIntent.putExtra("TABLE_NUMBER", tableNumber);
         startActivity(chooseTableIntent);
     }
 }
