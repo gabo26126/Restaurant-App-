@@ -1,16 +1,29 @@
 package com.example.restaurant_app.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Dessert {
-    private int dessertID;
+    @SerializedName("dessertID")
+    private Integer dessertID;
+    @SerializedName("name")
     private String name;
+    @SerializedName("description")
     private String description;
+    @SerializedName("price")
     private double price;
 
-    public int getDessertID() {
+    public Dessert(Integer dessertID, String name, String description, double price) {
+        this.dessertID = dessertID;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Integer getDessertID() {
         return dessertID;
     }
 
-    public void setDessertID(int dessertID) {
+    public void setDessertID(Integer dessertID) {
         this.dessertID = dessertID;
     }
 

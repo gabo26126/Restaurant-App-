@@ -1,9 +1,15 @@
 package com.example.restaurant_app.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MainCourse {
+    @SerializedName("mainCourseID")
     private int mainCourseID;
+    @SerializedName("name")
     private String name;
+    @SerializedName("description")
     private String description;
+    @SerializedName("price")
     private double price;
 
     public int getDessertID() {
