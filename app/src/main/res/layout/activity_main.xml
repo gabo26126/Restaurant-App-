@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <!-- Header med bordets namn -->
 
     <LinearLayout
         android:id="@+id/headerLayout"
@@ -80,10 +81,11 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+
     <!-- Drop-down meny för drickor (fast position) -->
     <Spinner
         android:id="@+id/drinkSpinner"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/buttonLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,510 +101,521 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
+            android:orientation="vertical">
 
-            android:padding="16dp">
-
-            <!-- Huvudrätt -->
-            <!-- Huvudrätt -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#CCCCCC" />
-            <!-- Förrätt -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Förrätter:"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textAlignment="center"
-                android:layout_marginBottom="8dp" />
-
+            <!-- Första LinearLayout för drycker -->
             <LinearLayout
+                android:id="@+id/drinksLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Norrlands delikatesser"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:text="-"
-                    android:id="@+id/minus1" />
-
-                <TextView
-                    android:id="@+id/Count1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:text="+"
-                    android:id="@+id/plus1" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Gravlax"
-                    android:textColor="#000000"
-
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="25dp"
-                    android:background="#000"
-                    android:textColor="#FFF"
-
-                    android:id="@+id/minus2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:id="@+id/Count2" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus2" />
+                android:orientation="vertical"
+                android:padding="8dp">
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <!-- Huvudrätt -->
+                <!-- Huvudrätt -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#CCCCCC" />
+                <!-- Förrätt -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Förrätter:"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Norrlands delikatesser"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:text="-"
+                        android:id="@+id/minus1" />
+
+                    <TextView
+                        android:id="@+id/Count1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:text="+"
+                        android:id="@+id/plus1" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Gravlax"
+                        android:textColor="#000000"
+
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textSize="25dp"
+                        android:background="#000"
+                        android:textColor="#FFF"
+
+                        android:id="@+id/minus2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:id="@+id/Count2" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Västerbottenpaj"
+                        android:textColor="#000000"
+
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFF"
+                        android:background="#000"
+                        android:textSize="25dp"
+                        android:text="-"
+                        android:id="@+id/minus3" />
+
+                    <TextView
+                        android:id="@+id/Count3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus3" />
+                </LinearLayout>
+
+
+                <!-- Huvudrätt -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#CCCCCC" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Västerbottenpaj"
-                    android:textColor="#000000"
-
-                    android:textSize="16sp" />
-
-                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFF"
-                    android:background="#000"
-                    android:textSize="25dp"
-                    android:text="-"
-                    android:id="@+id/minus3" />
+                    android:text="Varmrätter:"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+
+                        android:text="Ungsstekt Piggvar m.pepparrotskräm"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus4" />
+
+                    <TextView
+                        android:id="@+id/Count4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:textColor="#FFF"
+                        android:background="#000"
+                        android:textSize="20dp"
+                        android:id="@+id/plus4" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+
+                        android:text="Forellfile m. citronmousse"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus5" />
+
+                    <TextView
+                        android:id="@+id/Count5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus5" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+
+                        android:text="Lax m. Dillstuvad potatis"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus6" />
+
+                    <TextView
+                        android:id="@+id/Count6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus6" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+
+                        android:text="Älggryta m. Rotfrukter"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus7" />
+
+                    <TextView
+                        android:id="@+id/Count7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus7" />
+
+
+                </LinearLayout>
+                <!-- Huvudrätt -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#CCCCCC" />
+
+                <!-- Dessert -->
                 <TextView
-                    android:id="@+id/Count3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
+                    android:text="Dessert:"
+                    android:textSize="18sp"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:layout_marginTop="20sp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kladdkaka m. Grädde"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus8" />
+
+                    <TextView
+                        android:id="@+id/Count8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus8" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:text="blåbärspaj m. Vaniljsås"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus9" />
+
+                    <TextView
+                        android:id="@+id/Count9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus9" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Glass surpris"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="25dp"
+                        android:id="@+id/minus10" />
+
+                    <TextView
+                        android:id="@+id/Count10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:background="#000"
+                        android:textColor="#FFF"
+                        android:textSize="20dp"
+                        android:id="@+id/plus10" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                </LinearLayout>
+
+                <!-- Huvudrätt -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#CCCCCC" />
 
                 <Button
+                    android:id="@+id/sendorder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus3" />
+                    android:text="Skicka till köket" />
+
             </LinearLayout>
-
-
-            <!-- Huvudrätt -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#CCCCCC" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Varmrätter:"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-
-                    android:text="Ungsstekt Piggvar m.pepparrotskräm"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus4" />
-
-                <TextView
-                    android:id="@+id/Count4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:textColor="#FFF"
-                    android:background="#000"
-                    android:textSize="20dp"
-                    android:id="@+id/plus4" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-
-                    android:text="Forellfile m. citronmousse"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus5" />
-
-                <TextView
-                    android:id="@+id/Count5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus5" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-
-                    android:text="Lax m. Dillstuvad potatis"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus6" />
-
-                <TextView
-                    android:id="@+id/Count6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus6" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-
-                    android:text="Älggryta m. Rotfrukter"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus7" />
-
-                <TextView
-                    android:id="@+id/Count7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus7" />
-
-
-            </LinearLayout>
-            <!-- Huvudrätt -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#CCCCCC" />
-
-            <!-- Dessert -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dessert:"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginTop="20sp"
-                android:layout_marginBottom="8dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Kladdkaka m. Grädde"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus8" />
-
-                <TextView
-                    android:id="@+id/Count8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus8" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:text="blåbärspaj m. Vaniljsås"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus9" />
-
-                <TextView
-                    android:id="@+id/Count9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus9" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Glass surpris"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="25dp"
-                    android:id="@+id/minus10" />
-
-                <TextView
-                    android:id="@+id/Count10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:background="#000"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:id="@+id/plus10" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-            </LinearLayout>
-
-            <!-- Huvudrätt -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#CCCCCC" />
-
-            <Button
-                android:id="@+id/sendorder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Skicka till köket" />
-
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
