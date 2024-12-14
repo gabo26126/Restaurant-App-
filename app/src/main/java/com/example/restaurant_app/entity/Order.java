@@ -19,6 +19,10 @@ public class Order {
     private String createdAt;
     @SerializedName("notes")
     private String notes;
+    @SerializedName("tablenumber")
+    private Integer tableNumber;
+
+
 
     public List<OrderStarters> getOrderStarters() {
         return orderStarters;
@@ -74,5 +78,51 @@ public class Order {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Integer getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(Integer tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
+    public boolean orderIsDone(){
+        if(orderStarters != null){
+            for(OrderStarters orderStarter : orderStarters){
+                if(!orderStarter.isStatus()){
+                    return false;
+                }
+            }
+        }
+        if(orderMainCourses != null){
+            for(OrderMainCourses orderMainCourse : orderMainCourses){
+                if(!orderMainCourse.isStatus()){
+                    return false;
+                }
+            }
+        }
+        if(orderDesserts != null){
+            for(OrderDesserts orderDessert : orderDesserts){
+                if(!orderDessert.isStatus()){
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
+
+    public void removeDoneObjects(){
+        if(orderStarters != null){
+            orderStarters.removeIf(orderStarter -> orderStarter.isStatus());
+        }
+        if(orderMainCourses != null){
+            orderMainCourses.removeIf(orderMainCourse -> orderMainCourse.isStatus());
+        }
+        if(orderDesserts != null){
+            orderDesserts.removeIf(orderDessert -> orderDessert.isStatus());
+        }
     }
 }
