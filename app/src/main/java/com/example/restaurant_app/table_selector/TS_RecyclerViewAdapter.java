@@ -6,15 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.restaurant_app.ChooseTableActivity;
 import com.example.restaurant_app.R;
-import com.google.android.material.tabs.TabLayout;
+import com.example.restaurant_app.api.APIInterface;
+import com.example.restaurant_app.api.ApiClient;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TS_RecyclerViewAdapter extends RecyclerView.Adapter<TS_RecyclerViewAdapter.MyViewHolder> {
 
@@ -40,8 +46,35 @@ public class TS_RecyclerViewAdapter extends RecyclerView.Adapter<TS_RecyclerView
     @Override
     public void onBindViewHolder(@NonNull TS_RecyclerViewAdapter.MyViewHolder holder, int position) {
 
-        String title =tableSelectorModels.get(position).getTitle();
+        String title = tableSelectorModels.get(position).getTitle();
         holder.tableNumber.setText(title);
+
+
+
+        holder.checkMarkImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int orderID = tableSelectorModels.get(holder.getAdapterPosition()).getOrder().getOrderID();
+
+                APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+                Call<Void> call = apiInterface.removeOrder(orderID);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        tableSelectorModels.remove(holder.getAdapterPosition());
+                        TS_RecyclerViewAdapter.this.notifyItemRemoved(holder.getAdapterPosition());
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast toast = Toast.makeText(context, t.getMessage(), Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+            }
+        });
+
 
     }
 

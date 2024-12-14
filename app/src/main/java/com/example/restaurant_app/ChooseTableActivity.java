@@ -64,7 +64,7 @@ public class ChooseTableActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.chooseTableRecycler);
 
-
+        setUpTableSelectorModels();
 
     }
 
