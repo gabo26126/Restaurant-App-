@@ -11,7 +11,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_margin="16dp"
-        android:contentDescription="Close Button"
+        android:contentDescription="Close_Button"
         android:src="@drawable/close"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
