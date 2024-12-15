@@ -15,11 +15,11 @@
         android:theme="@style/Theme.Restaurant_App"
         tools:targetApi="31">
 
-        <activity android:name=".KitchenFloorActivity" android:exported="false"/>
-        <activity android:name=".KitchenViewActivity" android:exported="false"/>
-        <activity android:name=".ChooseTableActivity" android:exported="false"/>
-        <activity android:name=".tablePopup" android:exported="false"/>
-        <activity android:name=".MainActivity"
+        <activity android:name=".MainActivity" android:exported="true"/>
+        <activity android:name=".KitchenViewActivity" android:exported="true"/>
+        <activity android:name=".ChooseTableActivity" android:exported="true"/>
+        <activity android:name=".tablePopup" android:exported="true"/>
+        <activity android:name=".KitchenFloorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

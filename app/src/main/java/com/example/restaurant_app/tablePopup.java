@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,9 @@ public class tablePopup extends Activity {
 
 
         setupTableChoice(findViewById(android.R.id.content));
+
+        ImageView closeButton = findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(v -> finish());
 
     }
 

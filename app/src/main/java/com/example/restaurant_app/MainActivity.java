@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Dynamiskt skapa drickvyer
     private void setupDrinks(List<Drink> drinks) {
         // Hitta Spinnern i layouten
         Spinner drinkSpinner = findViewById(R.id.drinkSpinner);
@@ -80,10 +79,6 @@ public class MainActivity extends AppCompatActivity {
         List<String> drinkNames = new ArrayList<>();
         for (Drink drink : drinks) {
             drinkNames.add(drink.getName());  // Lägg till namnet på varje drink i listan
-        }
-        Log.d("SetupDrinks", "Drink Names: " + drinkNames.toString());
-        if (drinkNames.isEmpty()) {
-            Log.e("SetupDrinks", "No drinks found to display.");
         }
 
         // Skapa en ArrayAdapter för att visa drickorna i Spinnern
@@ -110,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
     // Uppdatera drickantal
