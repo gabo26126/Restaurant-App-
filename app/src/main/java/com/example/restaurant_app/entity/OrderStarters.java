@@ -16,6 +16,14 @@ public class OrderStarters {
     @SerializedName("status")
     private boolean status;
 
+    public OrderStarters(Starter starter, int amount, int orderStarterID, int orderID, boolean status) {
+        this.starter = starter;
+        this.amount = amount;
+        this.orderStarterID = orderStarterID;
+        this.orderID = orderID;
+        this.status = status;
+    }
+
     public Starter getStarter() {
         return starter;
     }

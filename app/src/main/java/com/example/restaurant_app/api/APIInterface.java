@@ -16,8 +16,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 
 public interface APIInterface {
     //@GET("api/desserts/1")
@@ -38,24 +36,18 @@ public interface APIInterface {
     @GET("api/drinks")
     Call<List<Drink>> getAllDrinks();
 
-    @PUT("api/order-main-courses/{orderMainCourseID}")
-    Call<Void> orderUpdateMainCourse(
-            @Path("orderMainCourseID") int orderMainCourseID,
-            @Body OrderMainCourses orderMainCourses);
+    @POST("api/orders")
+    Call<Order> addOrder(@Body Order order);
 
-    @PUT("api/order-desserts/{orderDessertID}")
-    Call<Void> orderUpdateDessert(
-            @Path("orderDessertID") int orderDessertID,
-            @Body OrderDesserts orderDesserts);
+    @POST("api/order-starters")
+    Call<Void> addOrderStarter(@Body OrderStarters orderStarters);
 
-    @PUT("api/order-starters/{orderStarterID}")
-    Call<Void> orderUpdateStarter(
-            @Path("orderStarterID") int orderStarterID,
-            @Body OrderStarters orderStarters);
+    @POST("api/order-main-courses")
+    Call<Void> addOrderMainCourse(@Body OrderMainCourses orderMainCourses);
 
-    @PUT("api/order-drinks/{orderDrinkID}")
-    Call<Void> orderUpdateDrink(
-            @Path("orderDrinkID") int orderStarterID,
-            @Body OrderDrinks orderDrinks);
+    @POST("api/order-desserts")
+    Call<Void> addOrderDessert(@Body OrderDesserts orderDesserts);
 
+    @POST("api/order-drinks")
+    Call<Void> addOrderDrink(@Body OrderDrinks orderDrinks);
 }

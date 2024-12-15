@@ -14,11 +14,11 @@ public class MainCourse {
     @SerializedName("price")
     private double price;
 
-    public int getDessertID() {
+    public int getMainCourseIDID() {
         return mainCourseID;
     }
 
-    public void setDessertID(int dessertID) {
+    public void setMainCourseIDID(int dessertID) {
         this.mainCourseID = dessertID;
     }
 

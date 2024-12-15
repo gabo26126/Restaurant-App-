@@ -2,149 +2,177 @@ package com.example.restaurant_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Spinner;
-import android.widget.ArrayAdapter;
-import android.widget.AdapterView;
-import java.util.ArrayList;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.api.APIInterface;
 import com.example.restaurant_app.api.ApiClient;
+import com.example.restaurant_app.entity.Dessert;
 import com.example.restaurant_app.entity.Drink;
+import com.example.restaurant_app.entity.MainCourse;
+import com.example.restaurant_app.entity.Starter;
+import com.example.restaurant_app.orderManagement.OrderDatabase;
+import com.example.restaurant_app.orderManagement.OrderManagement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OrderManagement{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Få bordets nummer från intent
-        int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
-        TextView textView = findViewById(R.id.tableName);
-        textView.setText(String.format("Bord %d", tableNumber));
+        int Count = 13; // Antal rätter
+        int starterNum = 2; //Antal förrätter-1
+        int mainCourseNum = 3; //Antal varmrätter-1
+        int dessertNum = 2; //Antal desserter-1
+        int drinkNum = 2; //Antal drinkar-1
 
-        // Tillbaka-knapp
+        int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
+
+        String layout = String.format("Bord %d", tableNumber);
+        TextView textView = findViewById(R.id.tableName);
+        textView.setText(layout);
+
         Button bordButton = findViewById(R.id.newtable);
+
         bordButton.setOnClickListener(view -> backToTable());
 
-        // Ladda menyer för drickor
-        loadDrinksMenu();
+        getMenu(starterNum, mainCourseNum, dessertNum, drinkNum);
 
-        // Skapa knappar för fasta maträtter (ex. Count 10)
-        setupFixedDishes(10);
+        // Loop genom alla rätter
+        for (int i = 1; i <= Count; i++) {
+            Button minusButton = findViewById(getResources().getIdentifier("minus" + i, "id", getPackageName()));
+            Button plusButton = findViewById(getResources().getIdentifier("plus" + i, "id", getPackageName()));
+            final TextView countTextView = findViewById(getResources().getIdentifier("Count" + i, "id", getPackageName()));
+
+            final int index = i;  // Behöver detta för att korrekt uppdatera rätt räknare
+
+
+            minusButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateCount(countTextView, false, index); // Minska räknaren för den specifika rätten
+                }
+            });
+
+
+            plusButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateCount(countTextView, true, index); // Öka räknaren för den specifika rätten
+                }
+            });
+        }
     }
 
-    // Ladda drickmenyn via API
-    private void loadDrinksMenu() {
-        APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
-        Call<List<Drink>> call = apiInterface.getAllDrinks();
+    public void orderCreated(){
+        Toast toast = Toast.makeText(this, "Order Created ", Toast.LENGTH_LONG);
+        toast.show();
+    }
 
-        call.enqueue(new Callback<List<Drink>>() {
+
+    private void updateCount(TextView countTextView, boolean increase, int index) {
+        int currentCount = Integer.parseInt(countTextView.getText().toString());
+        if (increase) {
+            currentCount++;
+        } else {
+            if (currentCount > 0) currentCount--;  // Förhindrar att räknaren går under 0
+        }
+        countTextView.setText(String.valueOf(currentCount));  // Uppdatera texten
+    }
+
+    private void backToTable(){
+        Intent tableIntent = new Intent(MainActivity.this, ChooseTableActivity.class);
+        startActivity(tableIntent);
+    }
+
+    private void getMenu(int starterNum, int mainCourseNum, int dessertNum, int drinkNum){
+        APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Starter>> call1 = apiInterface.getAllStarters();
+        call1.enqueue(new Callback<List<Starter>>() {
+            @Override
+            public void onResponse(Call<List<Starter>> call, Response<List<Starter>> response) {
+                for (int i = 0; i <= starterNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("starter" + i, "id", getPackageName()));
+                    String starterItem = response.body().get(i).getName();
+                    int idNum = response.body().get(i).getStarterID();
+                    updateMenu(menuItem, starterItem, idNum);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Starter>> call, Throwable t) {
+            }
+        });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<MainCourse>> call2 = apiInterface.getAllMainCourses();
+        call2.enqueue(new Callback<List<MainCourse>>() {
+            @Override
+            public void onResponse(Call<List<MainCourse>> call, Response<List<MainCourse>> response) {
+                for (int i = 0; i <= mainCourseNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("mainCourse" + i, "id", getPackageName()));
+                    String mainCourseItem = response.body().get(i).getName();
+                    int idNum = response.body().get(i).getMainCourseIDID();
+                    updateMenu(menuItem, mainCourseItem, idNum);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<MainCourse>> call, Throwable t) {
+            }
+        });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Dessert>> call3 = apiInterface.getAllDesserts();
+        call3.enqueue(new Callback<List<Dessert>>() {
+            @Override
+            public void onResponse(Call<List<Dessert>> call, Response<List<Dessert>> response) {
+                for (int i = 0; i <= dessertNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("dessert" + i, "id", getPackageName()));
+                    String dessertItem = response.body().get(i).getName();
+                    int idNum = response.body().get(i).getDessertID();
+                    updateMenu(menuItem, dessertItem, idNum);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Dessert>> call, Throwable t) {
+            }
+        });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Drink>> call4 = apiInterface.getAllDrinks();
+        call4.enqueue(new Callback<List<Drink>>() {
             @Override
             public void onResponse(Call<List<Drink>> call, Response<List<Drink>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<Drink> drinks = response.body();
-                    setupDrinks(drinks);  // Skapa dynamiska vyer för drickor
-                } else {
-                    Log.e("API_ERROR", "Failed to fetch drinks: " + response.message());
+                for (int i = 0; i <= drinkNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("drink" + i, "id", getPackageName()));
+                    String drinkItem = response.body().get(i).getName();
+                    int idNum = response.body().get(i).getDrinkID();
+                    updateMenu(menuItem, drinkItem, idNum);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Drink>> call, Throwable t) {
-                Log.e("API_ERROR", "Error: " + t.getMessage());
+
             }
         });
-    }
 
-    private void setupDrinks(List<Drink> drinks) {
-        // Hitta Spinnern i layouten
-        Spinner drinkSpinner = findViewById(R.id.drinkSpinner);
-
-        // Skapa en lista med namnen på drickorna
-        List<String> drinkNames = new ArrayList<>();
-        for (Drink drink : drinks) {
-            drinkNames.add(drink.getName());  // Lägg till namnet på varje drink i listan
-        }
-
-        // Skapa en ArrayAdapter för att visa drickorna i Spinnern
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, drinkNames);  // Använd en standard layout för spinnern
-
-        // Sätt en dropdown layout
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Sätt adapter för Spinnern
-        drinkSpinner.setAdapter(spinnerAdapter);
-
-        // Lägg till en OnItemSelectedListener om du vill fånga vilket val som görs
-        drinkSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String selectedDrink = parentView.getItemAtPosition(position).toString();
-                Log.d("SelectedDrink", selectedDrink);  // Logga den valda drinken
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Om inget är valt
-            }
-        });
     }
 
 
-
-    // Uppdatera drickantal
-    private void updateDrinkCount(TextView countTextView, boolean increase) {
-        int currentCount = Integer.parseInt(countTextView.getText().toString());
-        if (increase) {
-            currentCount++;
-        } else if (currentCount > 0) {
-            currentCount--;
-        }
-        countTextView.setText(String.valueOf(currentCount));
-    }
-
-    // Skapa fasta maträtter
-    private void setupFixedDishes(int count) {
-        for (int i = 1; i <= count; i++) {
-            Button minusButton = findViewById(getResources().getIdentifier("minus" + i, "id", getPackageName()));
-            Button plusButton = findViewById(getResources().getIdentifier("plus" + i, "id", getPackageName()));
-            TextView countTextView = findViewById(getResources().getIdentifier("Count" + i, "id", getPackageName()));
-
-            minusButton.setOnClickListener(v -> updateDishCount(countTextView, false));
-            plusButton.setOnClickListener(v -> updateDishCount(countTextView, true));
-        }
-    }
-
-    // Uppdatera maträttantal
-    private void updateDishCount(TextView countTextView, boolean increase) {
-        int currentCount = Integer.parseInt(countTextView.getText().toString());
-        if (increase) {
-            currentCount++;
-        } else if (currentCount > 0) {
-            currentCount--;
-        }
-        countTextView.setText(String.valueOf(currentCount));
-    }
-
-    // Tillbaka till bord-vy
-    private void backToTable() {
-        Intent tableIntent = new Intent(MainActivity.this, ChooseTableActivity.class);
-        startActivity(tableIntent);
+    private void updateMenu(TextView menuItem, String item, int idNum){
+        menuItem.setText(item);
+        menuItem.setTag(idNum);
     }
 }

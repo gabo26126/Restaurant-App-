@@ -14,11 +14,11 @@ public class Drink {
     @SerializedName("price")
     private double price;
 
-    public int getDessertID() {
+    public int getDrinkID() {
         return dessertID;
     }
 
-    public void setDessertID(int dessertID) {
+    public void setDrinkID(int dessertID) {
         this.dessertID = dessertID;
     }
 
