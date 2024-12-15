@@ -19,6 +19,19 @@ public class Order {
     private String createdAt;
     @SerializedName("notes")
     private String notes;
+    @SerializedName("tablenumber")
+    private Integer tableNumber;
+
+    public Order(List<OrderStarters> orderStarters, List<OrderMainCourses> orderMainCourses, List<OrderDesserts> orderDesserts, List<OrderDrinks> orderDrinks, Integer orderID, String createdAt, String notes, Integer tableNumber) {
+        this.orderStarters = orderStarters;
+        this.orderMainCourses = orderMainCourses;
+        this.orderDesserts = orderDesserts;
+        this.orderDrinks = orderDrinks;
+        this.orderID = orderID;
+        this.createdAt = createdAt;
+        this.notes = notes;
+        this.tableNumber = tableNumber;
+    }
 
     public List<OrderStarters> getOrderStarters() {
         return orderStarters;
@@ -74,5 +87,13 @@ public class Order {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Integer getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(Integer tableNumber) {
+        this.tableNumber = tableNumber;
     }
 }
