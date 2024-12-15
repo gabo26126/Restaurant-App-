@@ -14,6 +14,14 @@ public class OrderMainCourses {
     @SerializedName("status")
     private boolean status;
 
+    public OrderMainCourses(MainCourse mainCourse, int amount, int orderMainCourseID, int orderID, boolean status) {
+        this.mainCourse = mainCourse;
+        this.amount = amount;
+        this.orderMainCourseID = orderMainCourseID;
+        this.orderID = orderID;
+        this.status = status;
+    }
+
     public MainCourse getMainCourse() {
         return mainCourse;
     }

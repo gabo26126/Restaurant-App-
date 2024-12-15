@@ -14,6 +14,14 @@ public class OrderDrinks {
     @SerializedName("status")
     private boolean status;
 
+    public OrderDrinks(Drink drink, int amount, int orderDrinkID, int orderID, boolean status) {
+        this.drink = drink;
+        this.amount = amount;
+        this.orderDrinkID = orderDrinkID;
+        this.orderID = orderID;
+        this.status = status;
+    }
+
     public Drink getDrink() {
         return drink;
     }

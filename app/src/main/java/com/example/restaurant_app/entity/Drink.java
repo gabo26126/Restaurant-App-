@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Drink {
     @SerializedName("dessertID")
-    private int dessertID;
+    private int drinkID;
     @SerializedName("name")
     private String name;
     @SerializedName("description")
@@ -12,12 +12,12 @@ public class Drink {
     @SerializedName("price")
     private double price;
 
-    public int getDessertID() {
-        return dessertID;
+    public int getDrinkID() {
+        return drinkID;
     }
 
-    public void setDessertID(int dessertID) {
-        this.dessertID = dessertID;
+    public void setDrinkID(int drinkID) {
+        this.drinkID = drinkID;
     }
 
     public String getName() {

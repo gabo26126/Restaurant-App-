@@ -8,6 +8,13 @@ public class Menu {
     private List<Dessert> desserts;
     private List<Drink> drinks;
 
+    public Menu(List<Starter> starters, List<MainCourse> mainCourses, List<Dessert> desserts, List<Drink> drinks) {
+        this.starters = starters;
+        this.mainCourses = mainCourses;
+        this.desserts = desserts;
+        this.drinks = drinks;
+    }
+
     public List<Starter> getStarters() {
         return starters;
     }
