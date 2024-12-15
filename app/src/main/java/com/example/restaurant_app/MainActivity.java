@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,14 +15,17 @@ import com.example.restaurant_app.entity.Dessert;
 import com.example.restaurant_app.entity.Drink;
 import com.example.restaurant_app.entity.MainCourse;
 import com.example.restaurant_app.entity.Starter;
+import com.example.restaurant_app.orderManagement.OrderDatabase;
+import com.example.restaurant_app.orderManagement.OrderManagement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OrderManagement{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void orderCreated(){
+        Toast toast = Toast.makeText(this, "Order Created ", Toast.LENGTH_LONG);
+        toast.show();
     }
 
 
