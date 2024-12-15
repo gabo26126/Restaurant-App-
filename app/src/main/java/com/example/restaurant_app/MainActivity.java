@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.restaurant_app.api.APIInterface;
 import com.example.restaurant_app.api.ApiClient;
 import com.example.restaurant_app.entity.Dessert;
+import com.example.restaurant_app.entity.Drink;
 import com.example.restaurant_app.entity.MainCourse;
-import com.example.restaurant_app.entity.Menu;
 import com.example.restaurant_app.entity.Starter;
 
 import java.util.List;
@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int Count = 10; // Antal rätter
+        int Count = 13; // Antal rätter
         int starterNum = 2; //Antal förrätter-1
         int mainCourseNum = 3; //Antal varmrätter-1
         int dessertNum = 2; //Antal desserter-1
+        int drinkNum = 2; //Antal drinkar-1
 
         int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         bordButton.setOnClickListener(view -> backToTable());
 
-        getMenu(starterNum, mainCourseNum, dessertNum);
+        getMenu(starterNum, mainCourseNum, dessertNum, drinkNum);
 
         // Loop genom alla rätter
         for (int i = 1; i <= Count; i++) {
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void getMenu(int starterNum, int mainCourseNum, int dessertNum){
+    private void getMenu(int starterNum, int mainCourseNum, int dessertNum, int drinkNum){
         APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
         Call<List<Starter>> call1 = apiInterface.getAllStarters();
         call1.enqueue(new Callback<List<Starter>>() {
@@ -136,6 +137,25 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Dessert>> call, Throwable t) {
             }
         });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Drink>> call4 = apiInterface.getAllDrinks();
+        call4.enqueue(new Callback<List<Drink>>() {
+            @Override
+            public void onResponse(Call<List<Drink>> call, Response<List<Drink>> response) {
+                for (int i = 0; i <= drinkNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("drink" + i, "id", getPackageName()));
+                    String drinkItem = response.body().get(i).getName();
+                    updateMenu(menuItem, drinkItem);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Drink>> call, Throwable t) {
+
+            }
+        });
+
     }
 
 
