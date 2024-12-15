@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(tableIntent);
     }
 
-
     private void getMenu(int starterNum, int mainCourseNum, int dessertNum, int drinkNum){
         APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
         Call<List<Starter>> call1 = apiInterface.getAllStarters();
@@ -98,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i <= starterNum; i++){
                     TextView menuItem = findViewById(getResources().getIdentifier("starter" + i, "id", getPackageName()));
                     String starterItem = response.body().get(i).getName();
-                    updateMenu(menuItem, starterItem);
+                    int idNum = response.body().get(i).getStarterID();
+                    updateMenu(menuItem, starterItem, idNum);
                 }
             }
             @Override
@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i <= mainCourseNum; i++){
                     TextView menuItem = findViewById(getResources().getIdentifier("mainCourse" + i, "id", getPackageName()));
                     String mainCourseItem = response.body().get(i).getName();
-                    updateMenu(menuItem, mainCourseItem);
+                    int idNum = response.body().get(i).getMainCourseIDID();
+                    updateMenu(menuItem, mainCourseItem, idNum);
                 }
             }
             @Override
@@ -130,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i <= dessertNum; i++){
                     TextView menuItem = findViewById(getResources().getIdentifier("dessert" + i, "id", getPackageName()));
                     String dessertItem = response.body().get(i).getName();
-                    updateMenu(menuItem, dessertItem);
+                    int idNum = response.body().get(i).getDessertID();
+                    updateMenu(menuItem, dessertItem, idNum);
                 }
             }
             @Override
@@ -146,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i <= drinkNum; i++){
                     TextView menuItem = findViewById(getResources().getIdentifier("drink" + i, "id", getPackageName()));
                     String drinkItem = response.body().get(i).getName();
-                    updateMenu(menuItem, drinkItem);
+                    int idNum = response.body().get(i).getDrinkID();
+                    updateMenu(menuItem, drinkItem, idNum);
                 }
             }
 
@@ -159,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void updateMenu(TextView menuItem, String item){
+    private void updateMenu(TextView menuItem, String item, int idNum){
         menuItem.setText(item);
+        menuItem.setTag(idNum);
     }
 }
