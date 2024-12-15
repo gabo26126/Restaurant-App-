@@ -8,6 +8,19 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.restaurant_app.api.APIInterface;
+import com.example.restaurant_app.api.ApiClient;
+import com.example.restaurant_app.entity.Dessert;
+import com.example.restaurant_app.entity.MainCourse;
+import com.example.restaurant_app.entity.Menu;
+import com.example.restaurant_app.entity.Starter;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,16 +29,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int Count = 10; // Antal rätter
+        int starterNum = 2; //Antal förrätter-1
+        int mainCourseNum = 3; //Antal varmrätter-1
+        int dessertNum = 2; //Antal desserter-1
 
         int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
 
         String layout = String.format("Bord %d", tableNumber);
-        TextView textView = (TextView) findViewById(R.id.tableName);
+        TextView textView = findViewById(R.id.tableName);
         textView.setText(layout);
 
         Button bordButton = findViewById(R.id.newtable);
 
         bordButton.setOnClickListener(view -> backToTable());
+
+        getMenu(starterNum, mainCourseNum, dessertNum);
 
         // Loop genom alla rätter
         for (int i = 1; i <= Count; i++) {
@@ -67,5 +85,61 @@ public class MainActivity extends AppCompatActivity {
     private void backToTable(){
         Intent tableIntent = new Intent(MainActivity.this, ChooseTableActivity.class);
         startActivity(tableIntent);
+    }
+
+
+    private void getMenu(int starterNum, int mainCourseNum, int dessertNum){
+        APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Starter>> call1 = apiInterface.getAllStarters();
+        call1.enqueue(new Callback<List<Starter>>() {
+            @Override
+            public void onResponse(Call<List<Starter>> call, Response<List<Starter>> response) {
+                for (int i = 0; i <= starterNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("starter" + i, "id", getPackageName()));
+                    String starterItem = response.body().get(i).getName();
+                    updateMenu(menuItem, starterItem);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Starter>> call, Throwable t) {
+            }
+        });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<MainCourse>> call2 = apiInterface.getAllMainCourses();
+        call2.enqueue(new Callback<List<MainCourse>>() {
+            @Override
+            public void onResponse(Call<List<MainCourse>> call, Response<List<MainCourse>> response) {
+                for (int i = 0; i <= mainCourseNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("mainCourse" + i, "id", getPackageName()));
+                    String mainCourseItem = response.body().get(i).getName();
+                    updateMenu(menuItem, mainCourseItem);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<MainCourse>> call, Throwable t) {
+            }
+        });
+
+        apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
+        Call<List<Dessert>> call3 = apiInterface.getAllDesserts();
+        call3.enqueue(new Callback<List<Dessert>>() {
+            @Override
+            public void onResponse(Call<List<Dessert>> call, Response<List<Dessert>> response) {
+                for (int i = 0; i <= dessertNum; i++){
+                    TextView menuItem = findViewById(getResources().getIdentifier("dessert" + i, "id", getPackageName()));
+                    String dessertItem = response.body().get(i).getName();
+                    updateMenu(menuItem, dessertItem);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Dessert>> call, Throwable t) {
+            }
+        });
+    }
+
+
+    private void updateMenu(TextView menuItem, String item){
+        menuItem.setText(item);
     }
 }

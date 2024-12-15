@@ -132,6 +132,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/starter0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -176,6 +177,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/starter1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -220,6 +222,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/starter2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -279,6 +282,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/mainCourse0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -322,6 +326,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/mainCourse1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -364,6 +369,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/mainCourse2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -406,6 +412,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/mainCourse3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -466,6 +473,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/dessert0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -507,6 +515,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/dessert1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -548,6 +557,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/dessert2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
