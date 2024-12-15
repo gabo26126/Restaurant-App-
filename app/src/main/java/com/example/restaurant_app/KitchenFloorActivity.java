@@ -15,28 +15,11 @@ public class KitchenFloorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kitchen_floor);
 
-        Button pickKitchenButton = findViewById(R.id.kitchenButton);
-        Button pickFloorButton = findViewById(R.id.floorButton);
+        Button pickWorkButton = findViewById(R.id.kitchenButton);
 
-
-        pickFloorButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                showChooseTableActivity();
-            }
+        pickWorkButton.setOnClickListener(v -> {
+            Intent intent = new Intent(KitchenFloorActivity.this, MainActivity.class);
+            startActivity(intent);
         });
-
-        pickKitchenButton.setOnClickListener(view -> showKitchenActivity());
-    }
-
-    public void showChooseTableActivity(){
-        Intent chooseTableIntent = new Intent(KitchenFloorActivity.this, ChooseTableActivity.class);
-        //chooseTableIntent.putExtra(messageKey, message);
-        startActivity(chooseTableIntent);
-    }
-
-    public void showKitchenActivity(){
-        Intent chooseKitchenIntent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
-        startActivity(chooseKitchenIntent);
     }
 }

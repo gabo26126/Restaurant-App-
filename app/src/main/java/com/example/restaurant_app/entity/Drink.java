@@ -2,6 +2,8 @@ package com.example.restaurant_app.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class Drink {
     @SerializedName("dessertID")
     private int dessertID;
@@ -42,5 +44,18 @@ public class Drink {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drink drink = (Drink) o;
+        return dessertID == drink.dessertID && Double.compare(price, drink.price) == 0 && Objects.equals(name, drink.name) && Objects.equals(description, drink.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dessertID, name, description, price);
     }
 }
