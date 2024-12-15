@@ -5,6 +5,8 @@ import com.example.restaurant_app.entity.OrderDesserts;
 import com.example.restaurant_app.entity.OrderMainCourses;
 import com.example.restaurant_app.entity.OrderStarters;
 
+import java.util.Objects;
+
 public class OrderCardModel {
     private Order order;
 
@@ -18,6 +20,19 @@ public class OrderCardModel {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderCardModel that = (OrderCardModel) o;
+        return Objects.equals(order, that.order);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(order);
     }
 
     public String getTitle(){

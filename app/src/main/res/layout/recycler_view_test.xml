@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:descendantFocusability="afterDescendants"
     android:nestedScrollingEnabled="true">
 
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
+        android:descendantFocusability="afterDescendants"
         app:cardBackgroundColor="@color/beige"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +21,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:descendantFocusability="afterDescendants">
 
             <TextView
                 android:id="@+id/TableNumb"
@@ -36,6 +39,8 @@
                 android:id="@+id/OrderDone"
                 android:layout_width="133dp"
                 android:layout_height="55dp"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,10 +60,11 @@
             <ScrollView
                 android:id="@+id/orderScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="360dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +79,7 @@
                     <TextView
                         android:id="@+id/OrderDesc"
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="360dp"
                         android:text="TextView"
                         android:textSize="20dp" />
                 </LinearLayout>

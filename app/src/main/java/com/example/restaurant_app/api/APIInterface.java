@@ -45,7 +45,7 @@ public interface APIInterface {
 
     @PUT("api/order-desserts/{orderDessertID}")
     Call<Void> orderUpdateDessert(
-            @Path("orderMainCourseID") int orderDessertID,
+            @Path("orderDessertID") int orderDessertID,
             @Body OrderDesserts orderDesserts);
 
     @PUT("api/order-starters/{orderStarterID}")
