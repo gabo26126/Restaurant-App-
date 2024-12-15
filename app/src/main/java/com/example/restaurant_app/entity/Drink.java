@@ -2,9 +2,9 @@ package com.example.restaurant_app.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Drink {
-    @SerializedName("dessertID")
-    private int dessertID;
+public class Drink  extends MenuItem{
+    @SerializedName("drinkID")
+    private int drinkID;
     @SerializedName("name")
     private String name;
     @SerializedName("description")
@@ -12,12 +12,29 @@ public class Drink {
     @SerializedName("price")
     private double price;
 
-    public int getDrinkID() {
-        return dessertID;
+    public Drink(int drinkID, String name, String description, double price) {
+        this.drinkID = drinkID;
+        this.name = name;
+        this.description = description;
+        this.price = price;
     }
 
-    public void setDrinkID(int dessertID) {
-        this.dessertID = dessertID;
+    @Override
+    public Integer getID() {
+        return drinkID;
+    }
+
+    @Override
+    public void setID(Integer ID) {
+        this.drinkID = ID;
+    }
+
+    public int getDrinkID() {
+        return drinkID;
+    }
+
+    public void setDrinkID(int drinkID) {
+        this.drinkID = drinkID;
     }
 
     public String getName() {

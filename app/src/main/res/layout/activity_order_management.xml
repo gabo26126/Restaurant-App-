@@ -130,7 +130,7 @@
                 app:layout_constraintTop_toBottomOf="@id/mainCourseDivider" />
 
             <LinearLayout
-                android:id="@+id/DessertDivider"
+                android:id="@+id/dessertDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -161,13 +161,13 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/DessertRecyclerView"
+                android:id="@+id/dessertRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/DessertDivider" />
+                app:layout_constraintBottom_toTopOf="@id/dessertDivider" />
 
             <LinearLayout
                 android:id="@+id/drinkDivider"
@@ -178,7 +178,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/DessertRecyclerView" >
+                app:layout_constraintTop_toBottomOf="@id/dessertRecyclerView" >
 
                 <View
                     android:layout_width="match_parent"

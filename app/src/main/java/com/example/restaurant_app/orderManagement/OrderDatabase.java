@@ -40,7 +40,7 @@ public class OrderDatabase {
             @Override
             public void onResponse(Call<Order> call, Response<Order> response) {
                 if(response.body() != null){
-                    addMenuToOrderID(menu, orderManagement, response.body().getOrderID());
+                    addToExistingOrder(menu, response.body().getOrderID(), orderManagement);
                 }
             }
 
@@ -52,7 +52,7 @@ public class OrderDatabase {
         });
     }
 
-    private static void addMenuToOrderID(Menu menu, OrderManagement orderManagement, Integer orderID){
+    public static void addToExistingOrder(Menu menu, Integer orderID, OrderManagement orderManagement){
         AtomicInteger apiCallsMade = new AtomicInteger();
         Integer apiCallsRequired = menu.getDesserts().size() + menu.getStarters().size() + menu.getMainCourses().size() + menu.getDrinks().size();
 

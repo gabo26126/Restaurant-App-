@@ -2,7 +2,7 @@ package com.example.restaurant_app.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Dessert {
+public class Dessert extends MenuItem{
     @SerializedName("dessertID")
     private Integer dessertID;
     @SerializedName("name")
@@ -12,11 +12,22 @@ public class Dessert {
     @SerializedName("price")
     private double price;
 
+
     public Dessert(Integer dessertID, String name, String description, double price) {
         this.dessertID = dessertID;
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    @Override
+    public Integer getID() {
+        return dessertID;
+    }
+
+    @Override
+    public void setID(Integer ID) {
+        this.dessertID = ID;
     }
 
     public Integer getDessertID() {
@@ -50,4 +61,6 @@ public class Dessert {
     public void setPrice(double price) {
         this.price = price;
     }
+
+
 }
