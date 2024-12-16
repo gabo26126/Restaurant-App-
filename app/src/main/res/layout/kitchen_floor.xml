@@ -8,7 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Välj om du jobbar i kök eller som servitör"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textColor="#000"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/kitchenButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,8 +17,9 @@
 
     <Button
         android:id="@+id/kitchenButton"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_width="230dp"
+        android:layout_height="85dp"
+        android:background="@drawable/kitchen_floor_buttons"
         android:text="KÖK"
         android:layout_marginBottom="90dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,8 +29,9 @@
 
     <Button
         android:id="@+id/floorButton"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_width="230dp"
+        android:layout_height="85dp"
+        android:background="@drawable/kitchen_floor_buttons"
         android:text="Servitör"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"

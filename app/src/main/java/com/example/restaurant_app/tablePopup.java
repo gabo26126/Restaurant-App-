@@ -20,11 +20,18 @@ public class tablePopup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.7),(int)(height*.6));
+        getWindow().setLayout((int)(width*.6),(int)(height*.5));
 
 
         setupTableChoice(findViewById(android.R.id.content));
 
+        // Kod för att stänga popup eller göra någon annan åtgärd
+
+    }
+    public void closePopup(View view) {
+        finish(); // Om du vill avsluta aktiviteten
+        // Eller, om det är en popup, kan du dölja den:
+        // findViewById(R.id.popupLayout).setVisibility(View.GONE);
     }
 
     public void setupTableChoice(View rootView) {

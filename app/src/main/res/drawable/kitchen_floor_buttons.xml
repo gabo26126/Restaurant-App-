@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bakgrundsfärg -->
+    <solid android:color="#FFA500" /> <!-- Ändra till önskad färg -->
+
+    <!-- Rundade hörn -->
+    <corners android:radius="16dp" /> <!-- Justera radien efter behov -->
+
+    <!-- Svart kant -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" /> <!-- Bredd och färg på kanten -->
+</shape>
