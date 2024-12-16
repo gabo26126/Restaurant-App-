@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="#31b6a8"
         android:gravity="center"
         android:orientation="vertical"
@@ -28,15 +28,20 @@
             android:textSize="20sp" />
     </LinearLayout>
 
+
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="602dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="200dp"
+        android:id="@+id/scroller"
         app:layout_constraintBottom_toTopOf="@+id/footerLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+        android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/scrollerLayout"
@@ -47,35 +52,34 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/starterDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/starterRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="#CCCCCC"/>
+                    android:background="#CCCCCC" />
 
 
                 <!-- Dessert -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Förrätter:"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="20sp"
-                    android:layout_marginBottom="8dp" />
-
+                    android:layout_marginBottom="8dp"
+                    android:text="Förrätter:"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
 
             </LinearLayout>
@@ -84,7 +88,7 @@
                 android:id="@+id/starterRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/mainCourseDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/starterDivider" />
@@ -93,29 +97,28 @@
                 android:id="@+id/mainCourseDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/mainCourseRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/starterRecyclerView" >
+                app:layout_constraintTop_toBottomOf="@id/starterRecyclerView">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="#CCCCCC"/>
+                    android:background="#CCCCCC" />
 
 
-                <!-- Dessert -->
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Varmrätter:"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="20sp"
-                    android:layout_marginBottom="8dp" />
-
+                    android:layout_marginBottom="8dp"
+                    android:text="Varmrätter:"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
 
             </LinearLayout>
@@ -124,78 +127,76 @@
                 android:id="@+id/mainCourseRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/dessertDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mainCourseDivider" />
 
             <LinearLayout
-                android:id="@+id/DessertDivider"
+                android:id="@+id/dessertDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/dessertRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mainCourseRecyclerView" >
+                app:layout_constraintTop_toBottomOf="@id/mainCourseRecyclerView">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="#CCCCCC"/>
+                    android:background="#CCCCCC" />
 
 
                 <!-- Dessert -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Desserter:"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="20sp"
-                    android:layout_marginBottom="8dp" />
-
+                    android:layout_marginBottom="8dp"
+                    android:text="Desserter:"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
 
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/DessertRecyclerView"
+                android:id="@+id/dessertRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/drinkDivider"
+                app:layout_constraintTop_toBottomOf="@id/dessertDivider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/DessertDivider" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
                 android:id="@+id/drinkDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/drinkRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/DessertRecyclerView" >
+                app:layout_constraintTop_toBottomOf="@id/dessertRecyclerView">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="#CCCCCC"/>
+                    android:background="#CCCCCC" />
 
 
-                <!-- Dessert -->
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Drinks:"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
                     android:layout_marginTop="20sp"
-                    android:layout_marginBottom="8dp" />
-
+                    android:layout_marginBottom="8dp"
+                    android:text="Drinks:"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
 
 
             </LinearLayout>
@@ -211,16 +212,13 @@
         </LinearLayout>
 
 
-
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/footerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="200dp"
         android:orientation="vertical"
-        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -229,13 +227,29 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:background="#CCCCCC" />
+            android:background="#CCCCCC"
+            android:layout_gravity="center_horizontal"/>
 
         <Button
             android:id="@+id/sendorder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Skicka till köket" />
+            android:text="Skicka till köket"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:autofillHints="Ange anteckningar"
+            android:id="@+id/orderNotes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sendorder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:hint="Anteckningar"
+            />
 
     </LinearLayout>
 

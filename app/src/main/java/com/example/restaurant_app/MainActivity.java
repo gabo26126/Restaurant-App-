@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements OrderManagement{
         }
     }
 
-    public void orderCreated(){
+    public void orderSuccess(){
         Toast toast = Toast.makeText(this, "Order Created ", Toast.LENGTH_LONG);
         toast.show();
     }

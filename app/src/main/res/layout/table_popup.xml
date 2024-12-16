@@ -258,7 +258,7 @@
         app:layout_constraintTop_toBottomOf="@+id/table9button" />
 
     <View
-        android:id="@+id/viewButton1"
+        android:id="@+id/chooseTable1"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -269,7 +269,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton2"
+        android:id="@+id/chooseTable2"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -280,7 +280,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton3"
+        android:id="@+id/chooseTable3"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -291,7 +291,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton4"
+        android:id="@+id/chooseTable4"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -302,7 +302,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton5"
+        android:id="@+id/chooseTable5"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -313,7 +313,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton6"
+        android:id="@+id/chooseTable6"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -324,7 +324,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton7"
+        android:id="@+id/chooseTable7"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -335,7 +335,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton8"
+        android:id="@+id/chooseTable8"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -346,7 +346,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton9"
+        android:id="@+id/chooseTable9"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
@@ -357,7 +357,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View
-        android:id="@+id/viewButton10"
+        android:id="@+id/chooseTable10"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:clickable="true"

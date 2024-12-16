@@ -7,12 +7,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 public class tablePopup extends Activity {
 
     @Override
@@ -40,10 +34,10 @@ public class tablePopup extends Activity {
     public void setupTableChoice(View rootView) {
         // Map button IDs directly to table numbers
         int[] buttonIds = {
-                R.id.viewButton1, R.id.viewButton2, R.id.viewButton3,
-                R.id.viewButton4, R.id.viewButton5, R.id.viewButton6,
-                R.id.viewButton7, R.id.viewButton8, R.id.viewButton9,
-                R.id.viewButton10
+                R.id.chooseTable1, R.id.chooseTable2, R.id.chooseTable3,
+                R.id.chooseTable4, R.id.chooseTable5, R.id.chooseTable6,
+                R.id.chooseTable7, R.id.chooseTable8, R.id.chooseTable9,
+                R.id.chooseTable10
         };
 
         // Attach a single OnClickListener to all buttons
@@ -57,8 +51,9 @@ public class tablePopup extends Activity {
     }
 
     private void showOrderActivity(int tableNumber) {
-        Intent chooseTableIntent = new Intent(tablePopup.this, MainActivity.class);
+        Intent chooseTableIntent = new Intent(tablePopup.this, OrderManagementActivity.class);
         chooseTableIntent.putExtra("TABLE_NUMBER", tableNumber);
+        chooseTableIntent.putExtra("IS_EDITING_ORDER", false);
         startActivity(chooseTableIntent);
     }
 }
