@@ -1,6 +1,10 @@
 package com.example.restaurant_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +24,8 @@ import com.example.restaurant_app.entity.Order;
 import com.example.restaurant_app.entity.Starter;
 import com.example.restaurant_app.orderManagement.MenuItemModel;
 import com.example.restaurant_app.orderManagement.MenuRecyclerViewAdapter;
+import com.example.restaurant_app.orderManagement.OrderDatabase;
+import com.example.restaurant_app.orderManagement.OrderManagement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-    public class OrderManagementActivity extends AppCompatActivity {
+    public class OrderManagementActivity extends AppCompatActivity implements OrderManagement {
 
         private APIInterface apiInterface;
 
@@ -45,13 +51,21 @@ import retrofit2.Response;
         private MenuRecyclerViewAdapter adapterMainCourses;
         private MenuRecyclerViewAdapter adapterDesserts;
         private MenuRecyclerViewAdapter adapterDrinks;
+        int tableNumber;
+        private Button sendOrder;
+        private TextView headerTitle;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_order_management);
 
-            int tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
+            tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
+
+            sendOrder = findViewById(R.id.sendorder);
+            headerTitle = findViewById(R.id.tableName);
+            String headerTitleString = "Bord " + tableNumber;
+            headerTitle.setText(headerTitleString);
 
             recyclerViewStarters = findViewById(R.id.starterRecyclerView);
             recyclerViewMainCourses = findViewById(R.id.mainCourseRecyclerView);
@@ -60,7 +74,28 @@ import retrofit2.Response;
 
             setUpMenuItemModels();
 
+
+            sendOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    OrderDatabase.addOrderToDatabase(menuItemModelsStarter,
+                            menuItemModelsMainCourse,
+                            menuItemModelsDessert,
+                            menuItemModelsDrink,
+                            "Some notes123",
+                            tableNumber,
+                            OrderManagementActivity.this);
+                }
+            });
+
+
         }
+
+        public void orderSuccess(){
+            Intent intent = new Intent(OrderManagementActivity.this, ChooseTableActivity.class);
+            startActivity(intent);
+        }
+
 
         void setUpAdapters(){
             adapterStarters = new MenuRecyclerViewAdapter(this, menuItemModelsStarter);

@@ -22,7 +22,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OrderDatabase {
-    public static void addOrderToDatabase(Menu menu, String notes, Integer tableNumber, OrderManagement orderManagement){
+    public static void addOrderToDatabase(ArrayList<MenuItemModel> menuItemModelsStarter,
+                                          ArrayList<MenuItemModel> menuItemModelsMainCourse,
+                                          ArrayList<MenuItemModel> menuItemModelsDessert,
+                                          ArrayList<MenuItemModel> menuItemModelsDrink,
+                                          String notes, Integer tableNumber,
+                                          OrderManagement orderManagement){
 
         Order order = new Order(
                 null,
@@ -40,7 +45,7 @@ public class OrderDatabase {
             @Override
             public void onResponse(Call<Order> call, Response<Order> response) {
                 if(response.body() != null){
-                    addToExistingOrder(menu, response.body().getOrderID(), orderManagement);
+                    addToExistingOrder(menuItemModelsStarter, menuItemModelsMainCourse, menuItemModelsDessert, menuItemModelsDrink, response.body().getOrderID(), orderManagement);
                 }
             }
 
@@ -52,25 +57,30 @@ public class OrderDatabase {
         });
     }
 
-    public static void addToExistingOrder(Menu menu, Integer orderID, OrderManagement orderManagement){
+    public static void addToExistingOrder(ArrayList<MenuItemModel> menuItemModelsStarter,
+                                          ArrayList<MenuItemModel> menuItemModelsMainCourse,
+                                          ArrayList<MenuItemModel> menuItemModelsDessert,
+                                          ArrayList<MenuItemModel> menuItemModelsDrink,
+                                          Integer orderID,
+                                          OrderManagement orderManagement){
         AtomicInteger apiCallsMade = new AtomicInteger();
-        Integer apiCallsRequired = menu.getDesserts().size() + menu.getStarters().size() + menu.getMainCourses().size() + menu.getDrinks().size();
+        Integer apiCallsRequired = menuItemModelsStarter.size() + menuItemModelsMainCourse.size() + menuItemModelsDessert.size() + menuItemModelsDrink.size();
 
         APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
         List<Call<Void>> calls = new ArrayList<>();
 
         // Add all API calls into an array
-        for(Starter starter : menu.getStarters()){
-            calls.add(apiInterface.addOrderStarter(new OrderStarters(starter, 1, 0, orderID, false)));
+        for(MenuItemModel menuItemModel : menuItemModelsStarter){
+            calls.add(apiInterface.addOrderStarter(new OrderStarters((Starter) menuItemModel.getMenuItem(), menuItemModel.getNumberOfItems(), 0, orderID, false)));
         }
-        for(MainCourse mainCourse : menu.getMainCourses()){
-            calls.add(apiInterface.addOrderMainCourse(new OrderMainCourses(mainCourse, 1, 0, orderID, false)));
+        for(MenuItemModel menuItemModel : menuItemModelsMainCourse){
+            calls.add(apiInterface.addOrderMainCourse(new OrderMainCourses((MainCourse) menuItemModel.getMenuItem(), menuItemModel.getNumberOfItems(), 0, orderID, false)));
         }
-        for(Dessert dessert : menu.getDesserts()){
-            calls.add(apiInterface.addOrderDessert(new OrderDesserts(dessert, 1, 0, orderID, false)));
+        for(MenuItemModel menuItemModel : menuItemModelsDessert){
+            calls.add(apiInterface.addOrderDessert(new OrderDesserts((Dessert) menuItemModel.getMenuItem(), menuItemModel.getNumberOfItems(), 0, orderID, false)));
         }
-        for(Drink drink : menu.getDrinks()){
-            calls.add(apiInterface.addOrderDrink(new OrderDrinks(drink, 1, 0, orderID, false)));
+        for(MenuItemModel menuItemModel : menuItemModelsDrink){
+            calls.add(apiInterface.addOrderDrink(new OrderDrinks((Drink) menuItemModel.getMenuItem(), menuItemModel.getNumberOfItems(), 0, orderID, false)));
         }
 
         for(Call<Void> call : calls){
@@ -81,7 +91,7 @@ public class OrderDatabase {
 
                     // check if all calls has been made
                     if(currentCount == apiCallsRequired){
-                        orderManagement.orderCreated();
+                        orderManagement.orderSuccess();
                     }
                 }
 
@@ -91,7 +101,7 @@ public class OrderDatabase {
 
                     // check if all calls has been made
                     if(currentCount == apiCallsRequired){
-                        orderManagement.orderCreated();
+                        orderManagement.orderSuccess();
                     }
                 }
             });

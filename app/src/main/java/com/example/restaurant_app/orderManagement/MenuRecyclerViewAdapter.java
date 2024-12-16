@@ -60,8 +60,10 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
             @Override
             public void onClick(View view) {
                 Integer currentNumberOfItems = menuItemModels.get(holder.getAdapterPosition()).getNumberOfItems();
-                holder.count.setText(String.valueOf(currentNumberOfItems - 1));
-                menuItemModels.get(holder.getAdapterPosition()).setNumberOfItems(currentNumberOfItems - 1);
+                if(currentNumberOfItems > 0){
+                    holder.count.setText(String.valueOf(currentNumberOfItems - 1));
+                    menuItemModels.get(holder.getAdapterPosition()).setNumberOfItems(currentNumberOfItems - 1);
+                }
             }
         });
 
