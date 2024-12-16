@@ -30,11 +30,11 @@ public class MainCourse extends MenuItem{
         this.mainCourseID = ID;
     }
 
-    public int getMainCourseIDID() {
+    public int getMainCourseID() {
         return mainCourseID;
     }
 
-    public void setMainCourseIDID(int mainCourseID) {
+    public void setMainCourseID(int mainCourseID) {
         this.mainCourseID = mainCourseID;
     }
 
