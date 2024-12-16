@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +53,11 @@ import retrofit2.Response;
         private MenuRecyclerViewAdapter adapterDesserts;
         private MenuRecyclerViewAdapter adapterDrinks;
         int tableNumber;
+        boolean isEditing;
+        int orderID;
         private Button sendOrder;
         private TextView headerTitle;
+        private EditText orderNotes;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,8 @@ import retrofit2.Response;
             setContentView(R.layout.activity_order_management);
 
             tableNumber = getIntent().getIntExtra("TABLE_NUMBER", -1);
+            isEditing = getIntent().getBooleanExtra("IS_EDITING_ORDER", false);
+            orderID = getIntent().getIntExtra("ORDER_ID", -1);
 
             sendOrder = findViewById(R.id.sendorder);
             headerTitle = findViewById(R.id.tableName);
@@ -78,13 +84,26 @@ import retrofit2.Response;
             sendOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    OrderDatabase.addOrderToDatabase(menuItemModelsStarter,
-                            menuItemModelsMainCourse,
-                            menuItemModelsDessert,
-                            menuItemModelsDrink,
-                            "Some notes123",
-                            tableNumber,
-                            OrderManagementActivity.this);
+                    if(isEditing && orderID != -1){
+                        OrderDatabase.addToExistingOrder(menuItemModelsStarter,
+                                menuItemModelsMainCourse,
+                                menuItemModelsDessert,
+                                menuItemModelsDrink,
+                                orderID,
+                                OrderManagementActivity.this);
+                    } else {
+                        String notes = orderNotes.getText().toString().trim();
+                        if(notes.isEmpty()) { notes = "No notes"; }
+
+                        OrderDatabase.addOrderToDatabase(menuItemModelsStarter,
+                                menuItemModelsMainCourse,
+                                menuItemModelsDessert,
+                                menuItemModelsDrink,
+                                notes,
+                                tableNumber,
+                                OrderManagementActivity.this);
+                    }
+
                 }
             });
 

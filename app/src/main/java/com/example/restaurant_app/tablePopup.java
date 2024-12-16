@@ -49,6 +49,7 @@ public class tablePopup extends Activity {
     private void showOrderActivity(int tableNumber) {
         Intent chooseTableIntent = new Intent(tablePopup.this, OrderManagementActivity.class);
         chooseTableIntent.putExtra("TABLE_NUMBER", tableNumber);
+        chooseTableIntent.putExtra("IS_EDITING_ORDER", false);
         startActivity(chooseTableIntent);
     }
 }
