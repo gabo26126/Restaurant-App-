@@ -3,6 +3,7 @@ package com.example.restaurant_app.entity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Order {
     @SerializedName("orderStarters")
@@ -97,6 +98,18 @@ public class Order {
         this.tableNumber = tableNumber;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(orderStarters, order.orderStarters) && Objects.equals(orderMainCourses, order.orderMainCourses) && Objects.equals(orderDesserts, order.orderDesserts) && Objects.equals(orderDrinks, order.orderDrinks) && Objects.equals(orderID, order.orderID) && Objects.equals(createdAt, order.createdAt) && Objects.equals(notes, order.notes) && Objects.equals(tableNumber, order.tableNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderStarters, orderMainCourses, orderDesserts, orderDrinks, orderID, createdAt, notes, tableNumber);
+    }
 
     public boolean orderIsDone(){
         if(orderStarters != null){
@@ -135,6 +148,4 @@ public class Order {
             orderDesserts.removeIf(orderDessert -> orderDessert.isStatus());
         }
     }
-
-    
 }

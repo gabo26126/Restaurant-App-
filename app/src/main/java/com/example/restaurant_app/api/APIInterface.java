@@ -56,4 +56,25 @@ public interface APIInterface {
 
     @POST("api/order-drinks")
     Call<Void> addOrderDrink(@Body OrderDrinks orderDrinks);
+
+    @PUT("api/order-main-courses/{orderMainCourseID}")
+    Call<Void> orderUpdateMainCourse(
+            @Path("orderMainCourseID") int orderMainCourseID,
+            @Body OrderMainCourses orderMainCourses);
+
+    @PUT("api/order-desserts/{orderDessertID}")
+    Call<Void> orderUpdateDessert(
+            @Path("orderDessertID") int orderDessertID,
+            @Body OrderDesserts orderDesserts);
+
+    @PUT("api/order-starters/{orderStarterID}")
+    Call<Void> orderUpdateStarter(
+            @Path("orderStarterID") int orderStarterID,
+            @Body OrderStarters orderStarters);
+
+    @PUT("api/order-drinks/{orderDrinkID}")
+    Call<Void> orderUpdateDrink(
+            @Path("orderDrinkID") int orderStarterID,
+            @Body OrderDrinks orderDrinks);
+
 }

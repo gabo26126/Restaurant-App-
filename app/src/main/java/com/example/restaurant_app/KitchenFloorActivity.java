@@ -22,21 +22,19 @@ public class KitchenFloorActivity extends AppCompatActivity {
         pickFloorButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                showChooseTableActivity();
+                Intent chooseTableIntent = new Intent(KitchenFloorActivity.this, ChooseTableActivity.class);
+                startActivity(chooseTableIntent);
             }
         });
 
-        pickKitchenButton.setOnClickListener(view -> showKitchenActivity());
-    }
 
-    public void showChooseTableActivity(){
-        Intent chooseTableIntent = new Intent(KitchenFloorActivity.this, ChooseTableActivity.class);
-        //chooseTableIntent.putExtra(messageKey, message);
-        startActivity(chooseTableIntent);
-    }
+        pickKitchenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    public void showKitchenActivity(){
-        Intent chooseKitchenIntent = new Intent(KitchenFloorActivity.this, KitchenViewActivity.class);
-        startActivity(chooseKitchenIntent);
     }
 }
