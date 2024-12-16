@@ -92,8 +92,12 @@ import retrofit2.Response;
                                 orderID,
                                 OrderManagementActivity.this);
                     } else {
-                        String notes = orderNotes.getText().toString().trim();
-                        if(notes.isEmpty()) { notes = "No notes"; }
+                        String notes;
+                        if(orderNotes != null){
+                            notes = orderNotes.getText().toString().trim();
+                        } else {
+                            notes = "No notes";
+                        }
 
                         OrderDatabase.addOrderToDatabase(menuItemModelsStarter,
                                 menuItemModelsMainCourse,

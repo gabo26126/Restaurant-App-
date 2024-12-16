@@ -26,7 +26,8 @@ public class OrderDatabase {
                                           ArrayList<MenuItemModel> menuItemModelsMainCourse,
                                           ArrayList<MenuItemModel> menuItemModelsDessert,
                                           ArrayList<MenuItemModel> menuItemModelsDrink,
-                                          String notes, Integer tableNumber,
+                                          String notes,
+                                          Integer tableNumber,
                                           OrderManagement orderManagement){
 
         Order order = new Order(
@@ -37,7 +38,7 @@ public class OrderDatabase {
                 null,
                 null,
                 notes,
-                1);
+                tableNumber);
 
         APIInterface apiInterface = ApiClient.getRetrofitInstance().create(APIInterface.class);
         Call<Order> call = apiInterface.addOrder(order);

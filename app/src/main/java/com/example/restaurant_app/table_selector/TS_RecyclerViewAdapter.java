@@ -1,6 +1,7 @@
 package com.example.restaurant_app.table_selector;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurant_app.ChooseTableActivity;
+import com.example.restaurant_app.OrderManagementActivity;
 import com.example.restaurant_app.R;
 import com.example.restaurant_app.api.APIInterface;
 import com.example.restaurant_app.api.ApiClient;
@@ -72,6 +75,17 @@ public class TS_RecyclerViewAdapter extends RecyclerView.Adapter<TS_RecyclerView
                         toast.show();
                     }
                 });
+            }
+        });
+
+        holder.penImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent orderManagementIntent = new Intent(context, OrderManagementActivity.class);
+                orderManagementIntent.putExtra("TABLE_NUMBER", tableSelectorModels.get(holder.getAdapterPosition()).getOrder().getTableNumber());
+                orderManagementIntent.putExtra("IS_EDITING_ORDER", true);
+                orderManagementIntent.putExtra("ORDER_ID", tableSelectorModels.get(holder.getAdapterPosition()).getOrder().getOrderID());
+                context.startActivity(orderManagementIntent);
             }
         });
 
