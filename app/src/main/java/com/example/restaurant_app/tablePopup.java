@@ -20,7 +20,7 @@ public class tablePopup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.6),(int)(height*.5));
+        getWindow().setLayout((int)(width*.7),(int)(height*.6));
 
 
         setupTableChoice(findViewById(android.R.id.content));

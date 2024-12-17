@@ -282,6 +282,8 @@
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
+        android:contentDescription="bord1"
+
         android:focusable="true"
         app:layout_constraintTop_toTopOf="@id/view"
         app:layout_constraintBottom_toTopOf="@id/view2"
@@ -293,6 +295,8 @@
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
+        android:contentDescription="bord2"
+
         android:focusable="true"
         app:layout_constraintTop_toTopOf="@id/view2"
         app:layout_constraintBottom_toTopOf="@id/view3"
@@ -307,6 +311,7 @@
         android:focusable="true"
         app:layout_constraintTop_toTopOf="@id/view3"
         app:layout_constraintBottom_toTopOf="@id/view4"
+        android:contentDescription="bord3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -316,6 +321,8 @@
         android:layout_height="67dp"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="bord4"
+
         app:layout_constraintTop_toTopOf="@id/view4"
         app:layout_constraintBottom_toTopOf="@id/view5"
         app:layout_constraintStart_toStartOf="parent"
@@ -326,6 +333,7 @@
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
+        android:contentDescription="bord5"
         android:focusable="true"
         app:layout_constraintTop_toTopOf="@id/view5"
         app:layout_constraintBottom_toTopOf="@id/view6"
@@ -338,6 +346,8 @@
         android:layout_height="67dp"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="bord6"
+
         app:layout_constraintTop_toTopOf="@id/view6"
         app:layout_constraintBottom_toTopOf="@id/view7"
         app:layout_constraintStart_toStartOf="parent"
@@ -349,6 +359,8 @@
         android:layout_height="67dp"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="bord7"
+
         app:layout_constraintTop_toTopOf="@id/view7"
         app:layout_constraintBottom_toTopOf="@id/view8"
         app:layout_constraintStart_toStartOf="parent"
@@ -360,6 +372,8 @@
         android:layout_height="67dp"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="bord8"
+
         app:layout_constraintTop_toTopOf="@id/view8"
         app:layout_constraintBottom_toTopOf="@id/view9"
         app:layout_constraintStart_toStartOf="parent"
@@ -370,6 +384,8 @@
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:clickable="true"
+        android:contentDescription="bord9"
+
         android:focusable="true"
         app:layout_constraintTop_toTopOf="@id/view9"
         app:layout_constraintBottom_toTopOf="@id/view10"
@@ -382,6 +398,8 @@
         android:layout_height="72dp"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="bord10"
+
         app:layout_constraintTop_toTopOf="@id/view10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
